@@ -1,150 +1,113 @@
-# ChatWithAI
+# ⚡ ChatWithAI
 
-A modern, stateless AI chat application built with Next.js, React, and TypeScript. It supports streaming responses from Groq or OpenAI and provides a polished interface for multi-chat conversations, markdown rendering, and theme customization.
+> A fast, stateless AI chat application built with Next.js 16, React 19, and TypeScript. It supports streaming responses from Groq or OpenAI and features a polished, ChatGPT-style interface with advanced markdown rendering, voice input, and zero database overhead.
 
-## Overview
+**[🚀 Live Demo](https://chat-a7c.vercel.app)**
 
-ChatWithAI is designed for fast conversational experiences without a backend database. Chat history is kept in local client state for the current session, which makes it simple to run locally and easy to adapt for prototype or internal tools.
+## ✨ Features
 
-## Features
+- **💬 Stateless Architecture:** No database or authentication layer. Chats live in React memory and reset on refresh; appearance settings are saved in your browser.
+- **⚡ Real-time Streaming:** Responses stream from the server using Server-Sent Events (SSE).
+- **🎙️ Voice-to-Text Input:** Speak your prompts using the native Web Speech API with real-time transcription.
+- **🧮 LaTeX Math Rendering:** Formatted inline and block equations using KaTeX.
+- **💻 Syntax Highlighting:** Prism.js integration with “Copy” and “Download” buttons for code blocks.
+- **🧭 ChatGPT-Style Minimap:** A right-side navigation tracker to jump between your past questions.
+- **📝 Interactive AI Widgets:** AI can generate multiple-choice questions (MCQs) with clickable options.
+- **🎨 Beautiful UI/UX:** Multi-chat sidebar, dark/light/system modes, and multiple accent themes.
+- **🔒 Secure:** API keys are kept on the server side.
 
-- Stateless chat flow with no database or authentication layer
-- Real-time streaming responses from AI providers
-- Multi-chat sidebar with create, rename, and delete actions
-- Theme and appearance customization
-- Markdown-based message rendering for cleaner AI output
-- Follow-up suggestion generation after each response
-- Secure server-side API key handling
+## 🛠️ Tech Stack
 
-## Tech Stack
+- **Framework:** Next.js 16 (App Router)
+- **UI Library:** React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **AI Providers:** Groq (default) / OpenAI
+- **Advanced Rendering:** KaTeX (math), Prism React Renderer (code), and custom SSE streaming.
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS
-- OpenAI SDK
-- Groq-compatible OpenAI API
+## 🚀 Getting Started
 
-## Prerequisites
-
-Before starting, make sure you have:
-
-- Node.js 18 or later
-- npm or another package manager
-- A valid API key from either Groq or OpenAI
-
-## Getting Started
-
-### 1. Install dependencies
+### 1. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Configure environment variables
+### 2. Configure Environment Variables
 
-Create a `.env.local` file in the project root and add one of the following provider configurations.
+Create a `.env.local` file in the project root.
 
-#### Groq
+**Using Groq (Fast & Free):**
 
 ```env
 GROQ_API_KEY=your_groq_api_key_here
 GROQ_MODEL=openai/gpt-oss-20b
 ```
 
-#### OpenAI
+**Using OpenAI:**
 
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
 OPENAI_MODEL=gpt-4o-mini
 ```
 
-> Important: never commit your `.env.local` file to version control. Keep API keys private and secure.
-
-### 3. Run the app locally
+### 3. Run the App
 
 ```bash
 npm run dev
 ```
 
-Then open http://localhost:3000 in your browser.
+Open **[http://localhost:3000](http://localhost:3000/)** in your browser.
 
-### 4. Production build
+### 4. Production Build
 
 ```bash
 npm run build
 npm run start
 ```
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 .
 ├── app/
-│   ├── api/
-│   │   └── chat/
-│   │       └── route.ts          # AI server route with streaming support
+│   ├── api/chat/route.ts        # Server-side AI streaming endpoint
 │   ├── components/
-│   │   ├── ChatSidebar.tsx       # Chat session navigation and management
-│   │   ├── MarkdownRenderer.tsx  # Markdown formatting for assistant responses
-│   │   ├── SettingsModal.tsx     # Theme and interface settings
-│   │   └── page.tsx              # Main chat interface logic
-│   ├── globals.css               # Global styling and theme variables
-│   ├── layout.tsx                # App root layout
-│   ├── page.tsx                  # Primary page component
-│   └── types.ts                  # Shared UI and chat types
+│   │   ├── ChatSidebar.tsx      # Multi-chat navigation
+│   │   ├── MarkdownRenderer.tsx # KaTeX, Prism, tables, and MCQs
+│   │   ├── MCQWidget.tsx        # Interactive AI question widgets
+│   │   └── SettingsModal.tsx    # Theme customization
+│   ├── globals.css              # Tailwind & CSS variables
+│   ├── layout.tsx               # Root layout
+│   ├── page.tsx                 # Main chat logic & minimap
+│   └── types.ts                 # TypeScript interfaces
 ├── lib/
-│   └── types.ts                  # App-level type definitions
-├── public/
-├── .env.local                    # Local environment variables (do not commit)
-├── eslint.config.mjs             # ESLint configuration
-├── next.config.ts                # Next.js configuration
-├── package.json                  # Scripts and dependencies
-├── tsconfig.json                 # TypeScript configuration
-├── README.md                     # Project documentation
-└── PROJECT_LEARNING_GUIDE.md     # Additional project notes
+│   └── types.ts                 # Shared application types
+├── .env.local                   # Secret API keys (ignored by Git)
+├── package.json                 # Dependencies & scripts
+└── next.config.ts               # Next.js configuration
 ```
 
-## Runtime Behavior
+## 🧠 How it Works
 
-The application follows a simple request flow:
+1. **The Backend (`route.ts`):** Reads your API key securely, calls Groq or OpenAI, and streams the response via SSE.
+2. **The Chat Interface (`page.tsx`):** Manages chat state in React, handles the SSE stream, auto-scrolling, voice recognition, and the right-side minimap.
+3. **The Renderer (`MarkdownRenderer.tsx`):** Renders markdown, math with KaTeX, code with Prism, tables, and interactive MCQ widgets.
 
-1. The user enters a prompt in the chat interface.
-2. The frontend sends the message to the `/api/chat` endpoint.
-3. The API route validates the request and chooses the active provider.
-4. The selected model streams a response back to the client.
-5. The frontend updates the chat UI in real time and renders markdown output cleanly.
+## ⚠️ Security & Deployment
 
-## Security Notes
+This project keeps API keys server-side. However, for public deployments:
 
-This project is intended for local development or controlled internal deployment. If you expose it publicly, be aware that:
+- Add authentication or a password screen.
+- Implement rate limiting (e.g., via Vercel Edge Middleware) to prevent API credit abuse.
 
-- There is no user authentication
-- There is no built-in rate limiting
-- API usage may incur provider costs
+## ☁️ Deploy on Vercel
 
-For public deployment, consider adding authentication, rate limiting, or a private hosting setup before sharing the app externally.
+1. Push to GitHub.
+2. Import to Vercel.
+3. Add your `GROQ_API_KEY` to Environment Variables.
+4. Deploy!
 
-## Deployment
+## 📄 License
 
-The project is ready to deploy on platforms such as Vercel.
-
-1. Push the repository to GitHub.
-2. Import the project into Vercel.
-3. Add your environment variables in the Vercel dashboard.
-4. Deploy the application.
-
-## License
-
-This project is currently unlicensed unless otherwise specified. If you are publishing or sharing it publicly, consider adding a license file to define usage terms.
-
-## Contributing
-
-Contributions are welcome. To improve the project:
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Run validation and submit a pull request.
-
-```
+MIT License. Built with ❤️ by [Asad7Coder](https://github.com/asad7coder).
