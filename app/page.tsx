@@ -28,8 +28,8 @@ function StarterPromptIcon({ name }: { name: (typeof STARTER_PROMPTS)[number]["i
 }
 
 export default function ChatPage() {
-  const [theme, setTheme] = useState<ThemeId>("emerald");
-  const [mode, setMode] = useState<ColorMode>("dark");
+  const [theme, setTheme] = useState<ThemeId>("slate");
+  const [mode, setMode] = useState<ColorMode>("light");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 

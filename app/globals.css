@@ -6,15 +6,15 @@
    ======================================================== */
 
 :root {
-  /* Default Theme: Emerald */
-  --theme-primary: #10b981;
-  --theme-primary-hover: #059669;
-  --theme-primary-active: #047857;
-  --theme-primary-soft: rgba(16, 185, 129, 0.12);
-  --theme-primary-border: rgba(16, 185, 129, 0.28);
-  --theme-primary-glow: rgba(16, 185, 129, 0.35);
-  --theme-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%);
-  --theme-gradient-subtle: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(4, 120, 87, 0.05) 100%);
+  /* Default Theme: Slate */
+  --theme-primary: #71717a;
+  --theme-primary-hover: #52525b;
+  --theme-primary-active: #3f3f46;
+  --theme-primary-soft: rgba(113, 113, 122, 0.14);
+  --theme-primary-border: rgba(113, 113, 122, 0.32);
+  --theme-primary-glow: rgba(113, 113, 122, 0.35);
+  --theme-gradient: linear-gradient(135deg, #71717a 0%, #52525b 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(113, 113, 122, 0.16) 0%, rgba(82, 82, 91, 0.05) 100%);
   --theme-contrast-text: #ffffff;
 }
 

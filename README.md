@@ -1,6 +1,3 @@
-Here is the complete, single file. You can click "Copy" in the top right corner of the code block below and paste it directly into your `README.md` file on GitHub.
-
-```markdown
 # ChatWithAI
 
 A modern, stateless AI chat application built with Next.js, React, and TypeScript. It supports streaming responses from Groq or OpenAI and provides a polished interface for multi-chat conversations, markdown rendering, and theme customization.
