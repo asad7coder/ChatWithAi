@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* ========================================================
+   THEME DEFINITIONS & DESIGN TOKENS
+   Supports: Light / Dark Mode & 10 Selectable Color Themes
+   ======================================================== */
+
+:root {
+  /* Default Theme: Emerald */
+  --theme-primary: #10b981;
+  --theme-primary-hover: #059669;
+  --theme-primary-active: #047857;
+  --theme-primary-soft: rgba(16, 185, 129, 0.12);
+  --theme-primary-border: rgba(16, 185, 129, 0.28);
+  --theme-primary-glow: rgba(16, 185, 129, 0.35);
+  --theme-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(4, 120, 87, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 1. Emerald Aurora */
+[data-theme="emerald"] {
+  --theme-primary: #10b981;
+  --theme-primary-hover: #059669;
+  --theme-primary-active: #047857;
+  --theme-primary-soft: rgba(16, 185, 129, 0.12);
+  --theme-primary-border: rgba(16, 185, 129, 0.28);
+  --theme-primary-glow: rgba(16, 185, 129, 0.35);
+  --theme-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(5, 150, 105, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 2. Violet Nebula */
+[data-theme="violet"] {
+  --theme-primary: #8b5cf6;
+  --theme-primary-hover: #7c3aed;
+  --theme-primary-active: #6d28d9;
+  --theme-primary-soft: rgba(139, 92, 246, 0.12);
+  --theme-primary-border: rgba(139, 92, 246, 0.28);
+  --theme-primary-glow: rgba(139, 92, 246, 0.35);
+  --theme-gradient: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(139, 92, 246, 0.16) 0%, rgba(109, 40, 217, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 3. Sunset Amber */
+[data-theme="amber"] {
+  --theme-primary: #f59e0b;
+  --theme-primary-hover: #d97706;
+  --theme-primary-active: #b45309;
+  --theme-primary-soft: rgba(245, 158, 11, 0.14);
+  --theme-primary-border: rgba(245, 158, 11, 0.32);
+  --theme-primary-glow: rgba(245, 158, 11, 0.35);
+  --theme-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(245, 158, 11, 0.16) 0%, rgba(217, 119, 6, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 4. Ruby Crimson */
+[data-theme="crimson"] {
+  --theme-primary: #f43f5e;
+  --theme-primary-hover: #e11d48;
+  --theme-primary-active: #be123c;
+  --theme-primary-soft: rgba(244, 63, 94, 0.12);
+  --theme-primary-border: rgba(244, 63, 94, 0.28);
+  --theme-primary-glow: rgba(244, 63, 94, 0.35);
+  --theme-gradient: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(244, 63, 94, 0.16) 0%, rgba(225, 29, 72, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 5. Oceanic Cyan */
+[data-theme="cyan"] {
+  --theme-primary: #06b6d4;
+  --theme-primary-hover: #0891b2;
+  --theme-primary-active: #0e7490;
+  --theme-primary-soft: rgba(6, 182, 212, 0.13);
+  --theme-primary-border: rgba(6, 182, 212, 0.3);
+  --theme-primary-glow: rgba(6, 182, 212, 0.35);
+  --theme-gradient: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(6, 182, 212, 0.16) 0%, rgba(8, 145, 178, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 6. Cyber Lime */
+[data-theme="lime"] {
+  --theme-primary: #84cc16;
+  --theme-primary-hover: #65a30d;
+  --theme-primary-active: #4d7c0f;
+  --theme-primary-soft: rgba(132, 204, 22, 0.14);
+  --theme-primary-border: rgba(132, 204, 22, 0.32);
+  --theme-primary-glow: rgba(132, 204, 22, 0.35);
+  --theme-gradient: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(132, 204, 22, 0.16) 0%, rgba(101, 163, 13, 0.05) 100%);
+  --theme-contrast-text: #1a2e05;
+}
+
+/* 7. Midnight Sapphire */
+[data-theme="indigo"] {
+  --theme-primary: #6366f1;
+  --theme-primary-hover: #4f46e5;
+  --theme-primary-active: #4338ca;
+  --theme-primary-soft: rgba(99, 102, 241, 0.12);
+  --theme-primary-border: rgba(99, 102, 241, 0.28);
+  --theme-primary-glow: rgba(99, 102, 241, 0.35);
+  --theme-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(99, 102, 241, 0.16) 0%, rgba(79, 70, 229, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 8. Monochrome Obsidian */
+[data-theme="slate"] {
+  --theme-primary: #71717a;
+  --theme-primary-hover: #52525b;
+  --theme-primary-active: #3f3f46;
+  --theme-primary-soft: rgba(113, 113, 122, 0.14);
+  --theme-primary-border: rgba(113, 113, 122, 0.32);
+  --theme-primary-glow: rgba(113, 113, 122, 0.35);
+  --theme-gradient: linear-gradient(135deg, #71717a 0%, #52525b 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(113, 113, 122, 0.16) 0%, rgba(82, 82, 91, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 9. Blush Orchid */
+[data-theme="orchid"] {
+  --theme-primary: #d946ef;
+  --theme-primary-hover: #c026d3;
+  --theme-primary-active: #a21caf;
+  --theme-primary-soft: rgba(217, 70, 239, 0.12);
+  --theme-primary-border: rgba(217, 70, 239, 0.28);
+  --theme-primary-glow: rgba(217, 70, 239, 0.35);
+  --theme-gradient: linear-gradient(135deg, #d946ef 0%, #c026d3 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(217, 70, 239, 0.16) 0%, rgba(192, 38, 211, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* 10. Solar Flame */
+[data-theme="orange"] {
+  --theme-primary: #f97316;
+  --theme-primary-hover: #ea580c;
+  --theme-primary-active: #c2410c;
+  --theme-primary-soft: rgba(249, 115, 22, 0.14);
+  --theme-primary-border: rgba(249, 115, 22, 0.32);
+  --theme-primary-glow: rgba(249, 115, 22, 0.35);
+  --theme-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  --theme-gradient-subtle: linear-gradient(135deg, rgba(249, 115, 22, 0.16) 0%, rgba(234, 88, 12, 0.05) 100%);
+  --theme-contrast-text: #ffffff;
+}
+
+/* ========================================================
+   LIGHT MODE COLORS
+   ======================================================== */
+:root[data-mode="light"],
+[data-mode="light"] {
+  --app-bg: #f8fafc;
+  --app-surface: #ffffff;
+  --app-surface-subtle: #f1f5f9;
+  --app-surface-active: #e2e8f0;
+  --app-border: #e2e8f0;
+  --app-border-hover: #cbd5e1;
+  --app-text: #0f172a;
+  --app-text-muted: #475569;
+  --app-text-dim: #94a3b8;
+  --app-input-bg: #ffffff;
+  --app-input-border: #cbd5e1;
+  --app-ai-bubble-bg: #ffffff;
+  --app-ai-bubble-border: #e2e8f0;
+  --app-code-bg: #0f172a;
+  --app-code-header-bg: #1e293b;
+  --app-code-text: #f1f5f9;
+  --app-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+  --app-shadow-lg: 0 10px 30px -4px rgba(15, 23, 42, 0.1);
+  --app-backdrop: rgba(15, 23, 42, 0.35);
+}
+
+/* ========================================================
+   DARK MODE COLORS (Default)
+   ======================================================== */
+:root,
+:root[data-mode="dark"],
+[data-mode="dark"] {
+  --app-bg: #090d16;
+  --app-surface: #0f1523;
+  --app-surface-subtle: #172033;
+  --app-surface-active: #1e2942;
+  --app-border: rgba(255, 255, 255, 0.08);
+  --app-border-hover: rgba(255, 255, 255, 0.16);
+  --app-text: #f8fafc;
+  --app-text-muted: #94a3b8;
+  --app-text-dim: #64748b;
+  --app-input-bg: #0f1523;
+  --app-input-border: rgba(255, 255, 255, 0.12);
+  --app-ai-bubble-bg: #0f1523;
+  --app-ai-bubble-border: rgba(255, 255, 255, 0.08);
+  --app-code-bg: #080c14;
+  --app-code-header-bg: #0e1422;
+  --app-code-text: #e2e8f0;
+  --app-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.4);
+  --app-shadow-lg: 0 12px 40px -4px rgba(0, 0, 0, 0.6);
+  --app-backdrop: rgba(0, 0, 0, 0.7);
+}
+
+/* Global body styling */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  overflow: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--app-border-hover);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-primary);
+}
